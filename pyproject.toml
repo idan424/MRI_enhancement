@@ -1,0 +1,19 @@
+[project]
+name = "MRI_CLAHE_enhancement"
+version = "0.0.1"
+authors = [
+  { name="Best Team ever", email="adigincher@mail.tau.ac.il" },
+]
+description = "Apply CLAHE algorithem to improve image contraste"
+readme = "README.md"
+license = { file="LICENSE" }
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/idan424/MRI_enhancement/main"
+"Bug Tracker" = "https://github.com/idan424/MRI_enhancement/main/issues"
