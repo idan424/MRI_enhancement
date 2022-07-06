@@ -1,14 +1,21 @@
-import matplotlib.image as mpimg
+import numpy as np
+import matplotlib.pyplot as plt
+from PIL import Image
 
+from ui import get_img_names, plot_diff
 from preprocessing.preprocessing import process_image
-from clahe.clahe import enhance_and_show, plot_diff
+from clahe.clahe import get_clahe_image
 
 
 if __name__ == '__main__':
-    img_name = 'images/glioblastoma-84-coronal.jpg'
-    img = mpimg.imread(img_name).mean(axis=2)
+    img_names = get_img_names()
 
-    pp_img = process_image(img_name)
-    plot_diff(img, pp_img, names=['original image', 'preprocessed image'])
+    for img_name in img_names:
+        img = np.array(Image.open(img_name))
+        pp_img = process_image(img_name)
+        enc_img = get_clahe_image(pp_img)
 
-    enc = enhance_and_show(pp_img)
+        plot_diff(img, pp_img, enc_img, img_name.split('/')[-1])
+
+    plt.show()
+
