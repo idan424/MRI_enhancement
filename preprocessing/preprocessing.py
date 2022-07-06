@@ -1,6 +1,7 @@
 #Requirements: pip install Pillow
 import numpy as np
 import matplotlib.pyplot as plt
+import cv2
 
 from PIL import Image, ImageOps, ImageMath, ImageStat
 from skimage import data, img_as_float
@@ -23,17 +24,28 @@ def process_image(img_path_name):
     image_resz_gray = ImageOps.grayscale(img_resized) #pixel value range = (0,254)
     
     ##Denoising with non-local means
-    np_img = np.array(image_resz_gray)
-    float_img = img_as_float(np_img)
+    
+    np_img = np.array(image_resz_gray)  #convert img to np array
+    float_img = img_as_float(np_img)    #convert np array to float
     
     # estimate the noise standard deviation from the noisy image
-    sigma_est = np.mean(estimate_sigma(float_img, channel_axis=-1))
+    sigma_est = np.mean(estimate_sigma(float_img))
+    #print(f'estimated noise standard deviation = {sigma_est}')
+
+    patch_kw = dict(patch_size=5,      # 5x5 patches
+                patch_distance=6,)      # 13x13 search area
+
+    denoise_img = denoise_nl_means(float_img, h=1.15 * sigma_est, fast_mode=True, **patch_kw) 
+    #larger h =  smoothing between disimilar patches
+    #fast_mode = false adds spatial gaussian gradient
+    # multichannel would be color image
     
-    processed_img = np_img #temporary, until I finish denoising
-    return processed_img
+    #Next - display image
+    
+    processed_img = denoise_img #temporary
     
 if __name__ == '__main__':
-    img_path_name = "../images/glioblastoma-84-coronal.jpg"
+    img_path_name = "images/glioblastoma-84-coronal.jpg"
     pp_img = process_image(img_path_name)
     
 
