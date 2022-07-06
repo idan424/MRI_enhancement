@@ -3,8 +3,8 @@ import matplotlib.pyplot as plt
 from PIL import Image
 
 from ui import get_img_names, plot_diff
-from preprocessing.preprocessing import process_image
-from clahe.clahe import get_clahe_image
+from src.preprocessing.preprocessing import process_image
+from src.clahe.clahe import get_clahe_image
 
 
 if __name__ == '__main__':
@@ -18,4 +18,3 @@ if __name__ == '__main__':
         plot_diff(img, pp_img, enc_img, img_name.split('/')[-1])
 
     plt.show()
-
