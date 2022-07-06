@@ -24,20 +24,21 @@ def get_clahe_image(img: np.ndarray, clipLimit=2.0, tileGridSize=(8, 8)):
     return cl_img
 
 
-def plot_diff(img, enc):
+def plot_diff(img, enc, names=None):
     """
     This function shows the image before and after CLAHE
     :param img: the original image, np.ndarray
     :param enc: the enhanced image, np.ndarray
     """
-
+    if names == None:
+        names = ['Original image','Enhanced image']
     fig, axs = plt.subplots(1,2)
 
     axs[0].imshow(img, cmap='gray')
-    axs[0].set_title('Original image')
+    axs[0].set_title(names[0])
 
     axs[1].imshow(enc, cmap='gray')
-    axs[1].set_title('Enhanced image')
+    axs[1].set_title(names[1])
     for ax in axs:
         ax.set_xticks([])
         ax.set_yticks([])
