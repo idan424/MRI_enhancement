@@ -23,13 +23,14 @@ def process_image(img_path_name):
     image_resz_gray = ImageOps.grayscale(img_resized) #pixel value range = (0,254)
     
     ##Denoising with non-local means
-    np_img = np.array(image_resz_gray)
-    float_img = img_as_float(np_img)
-    
+    np_img = np.array(image_resz_gray).astype(float)
+
     # estimate the noise standard deviation from the noisy image
-    sigma_est = np.mean(estimate_sigma(float_img, channel_axis=-1))
-    
-    processed_img = np_img #temporary, until I finish denoising
+    sigma_est = np.mean(estimate_sigma(np_img))
+    patch_kw = dict(patch_size=5, patch_distance=6)
+    processed_img = denoise_nl_means(np_img, h=0.6 * sigma_est, sigma=sigma_est,
+                                     fast_mode=True, **patch_kw)
+
     return processed_img
     
 if __name__ == '__main__':
