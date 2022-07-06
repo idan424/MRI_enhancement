@@ -1,13 +1,33 @@
 #Requirements: pip install Pillow
-from PIL import Image, ImageOps, ImageFilter
+import numpy as np
+import matplotlib.pyplot as plt
 
+from PIL import Image, ImageOps, ImageFilter, ImageStat
+from skimage import data, img_as_float
+from skimage.restoration import denoise_nl_means, estimate_sigma
+from skimage.metrics import peak_signal_noise_ratio
+from skimage.util import random_noise
 
 
 def process_image(img_path_name):
+    """
+    :param img_path_name: Input image path string
+    :return: preprocessed image, np.array of size (256,256)
+    
+    """
     img = Image.open(img_path_name)
+    
     newsize = (256, 256)
     img_resized = img.resize(newsize)
-    image_resz_gray = ImageOps.grayscale(img_resized)
+    
+    image_resz_gray = ImageOps.grayscale(img_resized) #pixel value range = (0,254)
+    
+    #Denoising with non-local means
+    stats = ImageStat.Stat(image_resz_gray)
+    float_img = float(image_resz_gray)
+    
+    print(stats.stddev)
+    
     
     processed_img = image_resz_gray #temporary, until I finish denoising
     return processed_img
