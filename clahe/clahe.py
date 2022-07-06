@@ -8,13 +8,13 @@ import cv2
 def get_clahe_image(img: np.ndarray, clipLimit=2.0, tileGridSize=(8, 8)):
     """
 
-    :param img: Input image, np.array of size (256,256)
+    :param img: Input image, np.ndarray of size (256,256)
     :param clipLimit: Threshold for contrast limiting.
     :param tileGridSize: Size of grid for histogram equalization.
                          Input image will be divided into equally sized
                          rectangular tiles. tileGridSize defines the number
                          of tiles in row and column.
-    :return: clahe image, np.array of size (256,256)
+    :return: clahe image, np.ndarray of size (256,256)
     """
     gray_image = img.astype(np.uint8) if img.dtype != np.uint8  else img
 
@@ -26,7 +26,7 @@ def get_clahe_image(img: np.ndarray, clipLimit=2.0, tileGridSize=(8, 8)):
 
 def plot_diff(img, enc):
     """
-    This function shows the image befor and after CLAHE
+    This function shows the image before and after CLAHE
     :param img: the original image, np.ndarray
     :param enc: the enhanced image, np.ndarray
     """
@@ -45,7 +45,7 @@ def plot_diff(img, enc):
 def process_and_show(img):
     """
 
-    :param img: The image to process and present the, np.ndarray
+    :param img: The image to process and present, np.ndarray
     :return: clahe output image, np.ndarray
     """
 
