@@ -30,5 +30,5 @@ if __name__ == '__main__':
 # image.show()
 # image_resz_gray.show()
 
-# Size of the image in pixels
+#Size of the image in pixels
 #width, height = image.size
