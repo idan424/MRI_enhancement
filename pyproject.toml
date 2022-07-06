@@ -6,13 +6,12 @@ build-backend = "setuptools.build_meta"
 name = "MRI_CLAHE_enhancement"
 version = "0.0.1"
 authors = [
-  "Adi Gincher" <"adigincher@mail.tau.ac.il>", 
-  "Tziona NessAiver <tzionan@mail.tau.ac.il", 
-  "Idan Lavi" <lavi@mail.tau.ac.il>"
-]
+    {name= "Adi Gincher", mail="adigincher@mail.tau.ac.il"},
+    {name="Tziona NessAiver", mail="tzionan@mail.tau.ac.il"},
+    {name="Idan Lavi", mail="lavi@mail.tau.ac.il"}]
 description = "Apply CLAHE algorithem to improve image contrast"
 readme = "README.md"
-license = { file="LICENSE" }
+license = { file="LICENSE.md" }
 requires-python = ">=3.8"
 classifiers = [
     "Programming Language :: Python :: 3",
