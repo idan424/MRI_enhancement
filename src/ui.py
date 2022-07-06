@@ -8,19 +8,19 @@ root.withdraw()
 
 
 def get_img_names():
-    '''
+    """
     This function asks from the user to choose files
     :return: a list of file names
-    '''
+    """
     return list(filedialog.askopenfilenames(initialdir='images'))
 
 
 def user_params_selection():
-    '''
+    """
     This function allows for user params input
     :return: clipLimit, tileGridSize
 
-    '''
+    """
     choose = input('Do you want to choose params?(Y/N)')
     if choose.lower() == 'y':
         try:
