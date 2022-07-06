@@ -33,8 +33,8 @@ def process_image(img_path_name):
     return processed_img
     
 if __name__ == '__main__':
-    img_path_name = "images/glioblastoma-84-coronal.jpg"
-    process_image(img_path_name)
+    img_path_name = "../images/glioblastoma-84-coronal.jpg"
+    pp_img = process_image(img_path_name)
     
 
 #image.save('image_resz_gray.jpg')
