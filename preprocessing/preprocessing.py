@@ -2,11 +2,8 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-from PIL import Image, ImageOps, ImageMath, ImageStat
-from skimage import data, img_as_float
+from PIL import Image, ImageOps
 from skimage.restoration import denoise_nl_means, estimate_sigma
-from skimage.metrics import peak_signal_noise_ratio
-from skimage.util import random_noise
 
 
 def process_image(img_path_name):
@@ -19,12 +16,9 @@ def process_image(img_path_name):
     
     newsize = (256, 256)
     img_resized = img.resize(newsize)
-    
-    image_resz_gray = ImageOps.grayscale(img_resized) #pixel value range = (0,254)
-    
-    ##Denoising with non-local means
-    np_img = np.array(image_resz_gray).astype(float)
+    np_img = np.array(ImageOps.grayscale(img_resized)).astype(float)
 
+    # Denoising with non-local means
     # estimate the noise standard deviation from the noisy image
     sigma_est = np.mean(estimate_sigma(np_img))
     patch_kw = dict(patch_size=5, patch_distance=6)
