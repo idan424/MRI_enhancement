@@ -1,4 +1,5 @@
 #Requirements: pip install Pillow
+<<<<<<< HEAD
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -28,6 +29,17 @@ def process_image(img_path_name):
     
     print(stats.stddev)
     
+=======
+from PIL import Image, ImageOps, ImageFilter
+
+
+
+def process_image(img_path_name):
+    img = Image.open(img_path_name)
+    newsize = (256, 256)
+    img_resized = img.resize(newsize)
+    image_resz_gray = ImageOps.grayscale(img_resized)
+>>>>>>> main
     
     processed_img = image_resz_gray #temporary, until I finish denoising
     return processed_img
