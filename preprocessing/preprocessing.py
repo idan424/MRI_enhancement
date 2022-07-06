@@ -1,6 +1,7 @@
 #Requirements: pip install Pillow
 import numpy as np
 import matplotlib.pyplot as plt
+import cv2
 
 from PIL import Image, ImageOps
 from skimage.restoration import denoise_nl_means, estimate_sigma
