@@ -20,29 +20,19 @@ def process_image(img_path_name):
     
     newsize = (256, 256)
     img_resized = img.resize(newsize)
+    np_img =  np.array(ImageOps.grayscale(img_resized)).astype(float) #pixel value range = (0,254)
     
-    image_resz_gray = ImageOps.grayscale(img_resized) #pixel value range = (0,254)
-    
-    ##Denoising with non-local means
-    
-    np_img = np.array(image_resz_gray)  #convert img to np array
-    float_img = img_as_float(np_img)    #convert np array to float
-    
+    # Denoising with non-local means
     # estimate the noise standard deviation from the noisy image
-    sigma_est = np.mean(estimate_sigma(float_img))
-    #print(f'estimated noise standard deviation = {sigma_est}')
-
-    patch_kw = dict(patch_size=5,      # 5x5 patches
-                patch_distance=6,)      # 13x13 search area
-
-    denoise_img = denoise_nl_means(float_img, h=1.15 * sigma_est, fast_mode=True, **patch_kw) 
-    #larger h =  smoothing between disimilar patches
-    #fast_mode = false adds spatial gaussian gradient
-    # multichannel would be color image
+    sigma_est = np.mean(estimate_sigma(np_img))
+    patch_kw = dict(patch_size=5, patch_distance=6,)     # 5x5 patches, 13x13 search area
+    processed_img = denoise_nl_means(np_img, h=1.15 * sigma_est, fast_mode=True, **patch_kw) 
+        # Non-Local means parameter explanations:
+        # larger h =  smoothing between disimilar patches
+        # fast_mode = false adds spatial gaussian gradient
     
-    #Next - display image
-    
-    processed_img = denoise_img #temporary
+    #Next -display image
+    return processed_img
     
 if __name__ == '__main__':
     img_path_name = "images/glioblastoma-84-coronal.jpg"
