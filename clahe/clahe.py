@@ -42,7 +42,7 @@ def plot_diff(img, enc):
         ax.set_xticks([])
         ax.set_yticks([])
 
-def process_and_show(img):
+def enhance_and_show(img):
     """
 
     :param img: The image to process and present, np.ndarray
@@ -57,5 +57,5 @@ def process_and_show(img):
 
 if __name__ == '__main__':
     img = mpimg.imread('../images/glioblastoma-84-coronal.jpg').mean(axis=2)
-    enc = process_and_show(img)
+    enc = enhance_and_show(img)
 
