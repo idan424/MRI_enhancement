@@ -20,14 +20,10 @@ Before you continue, ensure you have met the following system requirements and p
 
 (More recent updates are not guaranteed to work)
 
-For the full list of requirements, see the `requirements.txt` file
-
-
-
 How To Use This
 ---------------
 
-1. Download all files
+1. Clone the repo using `git clone https://github.com/idan424/MRI_enhancement`
 2. Check for and install relevant dependencies `install .`
 3. (Optional) Replace images in the `images` folder with your own images
 4. Run `main.py` , or `python3 "./src/main.py"`
