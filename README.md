@@ -30,7 +30,7 @@ How To Use This
 ---------------
 
 1. Download all files
-2. Check for and install relevant dependencies
+2. Check for and install relevant dependencies `install .`
 3. (Optional) Replace images in the `images` folder with your own images
 4. Run `main.py` , or `python3 "./src/main.py"`
     _ (Optional) Input your desired clipping threshold, and grid size
