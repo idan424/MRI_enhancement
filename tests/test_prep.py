@@ -2,6 +2,7 @@ import os
 import cv2
 import pathlib
 import numpy as np
+import pytest
 
 from skimage.metrics import peak_signal_noise_ratio
 from src.preprocessing.preprocessing import process_image, resize_gray_img
@@ -37,6 +38,9 @@ def test_original_image_resize():
     processed_image = process_image(img_MRI)
     assert processed_image.shape == (256, 256)
 
+# Depreciate warnings caused by black images being 0 arrays
+@pytest.mark.filterwarnings("ignore:Mean of empty slice:RuntimeWarning")
+@pytest.mark.filterwarnings("ignore:invalid value encountered in double_scalars:RuntimeWarning")
 
 def test_resize():
     """
@@ -59,7 +63,8 @@ def test_greyscale():
     processed_gray = process_image(img_MRI)
     assert len(processed_gray.shape) == 2
 
-
+#Depreciate warning when image is compared to itself: MSE = 0 
+@pytest.mark.filterwarnings("ignore:divide by zero encountered in double_scalars:RuntimeWarning")
 def test_denoised():
     """
     Tests whether the preprocessing sucessfully reduces noise
@@ -71,7 +76,6 @@ def test_denoised():
     processed_img = process_image(img_MRI)
     psnr_processed = peak_signal_noise_ratio(resized_noisy_img.astype(np.int8), processed_img.astype(np.int8)) #data_range=255
     psnr_noisy = peak_signal_noise_ratio(resized_noisy_img.astype(np.int8), resized_noisy_img.astype(np.int8))
-    print("psnr noisy ", + psnr_noisy)
     
     assert psnr_processed < np.inf
     assert psnr_processed < psnr_noisy 
