@@ -10,7 +10,7 @@ authors = [
     { name = "Tziona NessAiver", mail = "tzionan@mail.tau.ac.il" },
     { name = "Idan Lavi", mail = "lavi@mail.tau.ac.il" }
 ]
-description = "Apply CLAHE algorithem to improve image contrast"
+description = "An image enhancement UI interface with adjustable parameters, which pre-processes images and applies a CLAHE algorithem"
 readme = "README.md"
 license = { file = "LICENSE.md" }
 requires-python = ">=3.8"

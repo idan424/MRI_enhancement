@@ -18,15 +18,22 @@ Before you continue, ensure you have met the following system requirements and p
 7. cv2
 8. Pillow
 
-More recent updates are not guaranteed to work
+(More recent updates are not guaranteed to work)
+
+For the full list of requirements, see the `requirements.txt` file
+
+
 
 How To Use This
 ---------------
 
 1. Download all files
-2. Check for and install relevant dependencies
+2. Check for and install relevant dependencies `install .`
 3. (Optional) Replace images in the `images` folder with your own images
 4. Run `main.py` , or `python3 "./src/main.py"`
+    _ (Optional) Input your desired clipping threshold, and grid size
+    _ Choose your image file(s)
+    _ Repeat as needed
 
 
 Testing
