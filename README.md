@@ -12,13 +12,11 @@ Dependencies
 Before you continue, ensure you have met the following system requirements and packages:
 
 1. Python 3.8 
-2. numpy  
-3. matplotlib 3.5.2
-4. tkinter
-5. pytest 7.1.2
-6. skimage
+2. NumPy
+3. matplotlib
+6. scikit-image
 7. cv2
-8. Pillow 9.2.0
+8. Pillow
 
 More recent updates are not guaranteed to work
 
