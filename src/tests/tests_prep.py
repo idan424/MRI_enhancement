@@ -42,6 +42,12 @@ class TestPreprocessing:
         # assert np.array(processed_gray).dtype() != np.uint8
     
     def test_denoised(self):
+        """
+        Tests whether the preprocessing sucessfully redoces noise
+        by comparing histogram peak signal to noise ratios.
+        The improved image should have a lower psnr
+
+        """
         processed_noisy = process_image(img_noisy)
         psnr_processed = peak_signal_noise_ratio(processed_noisy, img_noisy) 
         assert psnr_processed < psnr_noisy 
