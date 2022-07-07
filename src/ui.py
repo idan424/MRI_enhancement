@@ -1,5 +1,8 @@
+import os
 import numpy as np
+
 import matplotlib.pyplot as plt
+import cv2
 
 from PIL import Image
 import tkinter as tk
@@ -36,15 +39,15 @@ class GUI:
         self.root = root
 
         # Contrast Limit input
-        self.cl_label = tk.Label(text="Choose Threshold for contrast limiting\n" +
-                                      "(Default = 2.0)")
+        self.cl_label = tk.Label(text="Choose Threshold for contrast limiting\n"
+                                      +"(Default = 2.0)")
         self.cl_label.pack()
 
         self.cl_entry = tk.Entry()
         self.cl_entry.pack()
 
         # Grid Size input
-        self.gs_label = tk.Label(text="Grid size for histogram equalization.\n" +
+        self.gs_label = tk.Label(text="Grid size for histogram equalization.\n"+
                                       "Choose a single integer. (Default = 8)")
         self.gs_label.pack()
 
@@ -55,6 +58,11 @@ class GUI:
         self.im_button = tk.Button(text="Choose images to process",
                                    command=self.button_press)
         self.im_button.pack()
+
+        self.save = tk.IntVar()
+        self.save_label = tk.Checkbutton(self.root, text='Check for saving',
+                                         variable=self.save, onvalue=1, offvalue=0)
+        self.save_label.pack()
 
         self.root.mainloop()
         # self.root.withdraw()
@@ -89,26 +97,40 @@ class GUI:
         print(f'ClipLimit={self.cl}, GridSize={self.gs}')
 
         # use the set clip limit and grid size to process images
-        self.process_images()
+        # print(self.save.get())
+        self.process_images(save=bool(self.save.get()))
 
-    def process_images(self):
+    def process_images(self, save=False):
         """
         This function gets all image names and process them
         :return:
         """
         img_names = get_img_names()
-
+        save_dir = filedialog.askdirectory(initialdir='images')
         for img_name in img_names:
-            # run over all choosen images, aplly the pre-rocessing and the CLAHE algorithem
+            # run over all chosen images, apply the pre-processing and the
+            # CLAHE algorithm
 
             img = np.array(Image.open(img_name))
             pp_img = process_image(img_name)
             enc_img = get_clahe_image(pp_img, self.cl, self.gs)
 
-            # show the results of the 3 processing stats of the image - Originale,after pre-processing,after CLAHE algorithem
+            save_img_file_name = 'enhanced_' + img_name.split('/')[-1]
+            # Save image if asked to
+            if save:
+                cv2.imwrite(os.path.join(save_dir, save_img_file_name), enc_img)
+
+            # show the results of the 3 processing stats of the image -
+            # Original, after pre-processing, after CLAHE algorithm
             plot_diff(img, pp_img, enc_img, img_name.split('/')[-1])
 
         plt.show()
+
+    def save_images(self):
+        """
+
+        :return:
+        """
 
 
 def plot_diff(img, pp_img, enc, title, names=None):
