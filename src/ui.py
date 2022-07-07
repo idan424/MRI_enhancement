@@ -106,7 +106,10 @@ class GUI:
         :return:
         """
         img_names = get_img_names()
-        save_dir = filedialog.askdirectory(initialdir='images')
+
+        if save:
+            save_dir = filedialog.askdirectory(initialdir='images')
+
         for img_name in img_names:
             # run over all chosen images, apply the pre-processing and the
             # CLAHE algorithm
