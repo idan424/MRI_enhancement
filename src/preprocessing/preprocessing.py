@@ -33,5 +33,8 @@ def process_image(img_path: str):
     return processed_img
 
 if __name__ == '__main__':
-    img = Image.open("images/glioblastoma-84-coronal.jpg")
-    pp_img = process_image(img)
+    # For testing one file
+    import pathlib
+    img_path = (pathlib.Path(__file__).parent / '../../images/glioblastoma-84-coronal.jpg').resolve()
+    pp_img = process_image(img_path)
+    

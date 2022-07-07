@@ -23,6 +23,10 @@ def get_clahe_image(img: np.ndarray, clipLimit=2.0, tileGridSize=(8, 8)):
     return cl_img
 
 if __name__ == '__main__':
-    img = mpimg.imread('../images/glioblastoma-84-coronal.jpg').mean(axis=2)
+    # For testing one image file
+    import pathlib
+    clahe_dir = (pathlib.Path(__file__).parent / '../../images/glioblastoma-84-coronal.jpg').resolve()
+
+    img = mpimg.imread(clahe_dir).mean(axis=2)
     enc = get_clahe_image(img)
 

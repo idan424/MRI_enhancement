@@ -2,10 +2,10 @@ import os
 import cv2
 
 from skimage.metrics import peak_signal_noise_ratio
-from src.preprocessing.preprocessing import *
+from src.preprocessing.preprocessing import process_image
 from PIL import Image
 
-img_name = "../../images/glioblastoma-84-coronal.jpg"  # Choose the image you want to
+img_name = "images/glioblastoma-84-coronal.jpg"  # Choose the image you want to
 
 # Create gray same size image in order to check the final image mode
 img_gray = Image.new('RGB', (256, 256), color='red').convert("L")

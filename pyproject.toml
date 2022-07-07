@@ -32,7 +32,7 @@ dependencies = [
 [tool.pytest.ini_options]
 minversion = "6.0"
 addopts = "-ra -q"
-testpaths = ["src/tests"]
+testpaths = ["tests"]
 
 [project.urls]
 "Homepage" = "https://github.com/idan424/MRI_enhancement/main"
