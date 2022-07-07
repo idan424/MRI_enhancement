@@ -6,18 +6,27 @@ build-backend = "setuptools.build_meta"
 name = "MRI_CLAHE_enhancement"
 version = "0.0.1"
 authors = [
-    {name= "Adi Gincher", mail="adigincher@mail.tau.ac.il"},
-    {name="Tziona NessAiver", mail="tzionan@mail.tau.ac.il"},
-    {name="Idan Lavi", mail="lavi@mail.tau.ac.il"}
+    { name = "Adi Gincher", mail = "adigincher@mail.tau.ac.il" },
+    { name = "Tziona NessAiver", mail = "tzionan@mail.tau.ac.il" },
+    { name = "Idan Lavi", mail = "lavi@mail.tau.ac.il" }
 ]
 description = "Apply CLAHE algorithem to improve image contrast"
 readme = "README.md"
-license = {file="LICENSE.md"}
+license = { file = "LICENSE.md" }
 requires-python = ">=3.8"
 classifiers = [
     "Programming Language :: Python :: 3",
     "License :: OSI Approved :: GNU GPL",
     "Operating System :: OS Independent",
+]
+
+dependencies = [
+    'python==3.8',
+    'numpy==1.22.4',
+    'matplotlib 3.5.2',
+    'scikit-image==0.18.1',
+    'opencv-python==4.5.5',
+    'Pillow==9.2.0'
 ]
 
 [tool.pytest.ini_options]
