@@ -18,7 +18,12 @@ classifiers = [
     "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
 ]
-
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = "-ra -q"
+testpaths = [
+    "src/tests"
+]
 [project.urls]
 "Homepage" = "https://github.com/idan424/MRI_enhancement/main"
 "Bug Tracker" = "https://github.com/idan424/MRI_enhancement/main/issues"

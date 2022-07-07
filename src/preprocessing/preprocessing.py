@@ -4,18 +4,20 @@ from PIL import Image, ImageOps
 from skimage.restoration import denoise_nl_means, estimate_sigma
 
 
-def process_image(img_path):
+def process_image(img_path: str):
     """
     This function pre-processes an image by
-    -resizing to 256x256
-    -converting to grayscale
-    -performing noise reduction algorithm of non-local means
-    :param img_path_name: Input image path string
+        -resizing to 256x256
+        -converting to grayscale
+        -performing noise reduction algorithm of non-local means
+
+    Non-Local means parameter explanations:
+        larger h =  smoothing between dissimilar patches
+        fast_mode = false adds spatial gaussian gradient
+
+    :param img_path: path to the image
     :return: preprocessed image, np.ndarray of size (256,256)
     """
-        # Non-Local means parameter explanations:
-        # larger h =  smoothing between disimilar patches
-        # fast_mode = false adds spatial gaussian gradient
 
     img = Image.open(img_path)
     
@@ -31,5 +33,5 @@ def process_image(img_path):
     return processed_img
 
 if __name__ == '__main__':
-    img_path= "images/glioblastoma-84-coronal.jpg"
-    pp_img = process_image(img_path)
+    img = Image.open("images/glioblastoma-84-coronal.jpg")
+    pp_img = process_image(img)

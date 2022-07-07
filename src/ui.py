@@ -17,10 +17,11 @@ def get_img_names():
 
 def user_params_selection():
     """
-    This function allows for user params input
-    :return: clipLimit, tileGridSize
+    This function asks the user to define that algorithm parameters
 
+    :return: float, tuple(int,int) : answers of the user
     """
+
     choose = input('Do you want to choose params?(Y/N)')
     if choose.lower() == 'y':
         try:

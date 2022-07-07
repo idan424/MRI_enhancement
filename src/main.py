@@ -9,6 +9,7 @@ from src.clahe.clahe import get_clahe_image
 
 if __name__ == '__main__':
     #In order to run on our module if it is the source file
+    clipLimit, tileGridSize = user_params_selection()
     img_names = get_img_names()
 
     for img_name in img_names:
