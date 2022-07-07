@@ -1,9 +1,10 @@
 import pytest
+import numpy as np
 
 from PIL import Image, ImageFilter
 from skimage.metrics import peak_signal_noise_ratio
-from src.clahe.clahe import *
-from src.preprocessing.preprocessing import *
+from src.clahe.clahe import get_clahe_image
+from src.preprocessing.preprocessing import process_image
 
 # Create defined sample test images
 img_name = "images/glioblastoma-84-coronal.jpg" # Choose the image you want to
@@ -17,8 +18,8 @@ def test_std_histogram():
     """
     Tests whether the clahe function is in fact implemented quantitatively,
     by comparing histogram standard deviation values.
-    The improved image should have a higher standard deviation
     CLAHE algorithm should reduce the standard deviation of the histogram
+    Therefore, the improved image should have a higher standard deviation
     """
 
     # Calculate the histogram of the image after pre-processing only

@@ -29,7 +29,7 @@ def process_image(img_path: str):
     sigma_est = np.mean(estimate_sigma(np_img))      # estimate the noise standard deviation from the noisy image
     patch_kw = dict(patch_size=5, patch_distance=6)  # 5x5 patches, 13x13 search area
     processed_img = denoise_nl_means(np_img, h=1.15 * sigma_est, sigma=sigma_est, fast_mode=True, **patch_kw)
-
+    
     return processed_img
 
 if __name__ == '__main__':
