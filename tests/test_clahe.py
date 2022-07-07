@@ -39,5 +39,5 @@ def test_psnr():
     """
 
     # Clahe should have higher PSNR
-    psnr_clahe = peak_signal_noise_ratio(clahe_img, pp_img)
+    psnr_clahe = peak_signal_noise_ratio(clahe_img.astype(np.int8), pp_img.astype(np.int8))
     assert psnr_clahe > 1

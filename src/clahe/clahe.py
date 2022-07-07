@@ -18,8 +18,8 @@ def get_clahe_image(img: np.ndarray, clipLimit=2.0, tileGridSize=(8, 8)):
     gray_image = img.astype(np.uint8) if img.dtype != np.uint8  else img
 
     clahe = cv2.createCLAHE(clipLimit, tileGridSize)
-    cl_img = clahe.apply(gray_image)
-
+    cl_img = clahe.apply(gray_image).astype(float)
+    
     return cl_img
 
 if __name__ == '__main__':
