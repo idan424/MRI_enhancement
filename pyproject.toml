@@ -8,22 +8,23 @@ version = "0.0.1"
 authors = [
     {name= "Adi Gincher", mail="adigincher@mail.tau.ac.il"},
     {name="Tziona NessAiver", mail="tzionan@mail.tau.ac.il"},
-    {name="Idan Lavi", mail="lavi@mail.tau.ac.il"}]
+    {name="Idan Lavi", mail="lavi@mail.tau.ac.il"}
+]
 description = "Apply CLAHE algorithem to improve image contrast"
 readme = "README.md"
-license = { file="LICENSE.md" }
+license = {file="LICENSE.md"}
 requires-python = ">=3.8"
 classifiers = [
     "Programming Language :: Python :: 3",
-    "License :: OSI Approved :: MIT License",
+    "License :: OSI Approved :: GNU GPL",
     "Operating System :: OS Independent",
 ]
+
 [tool.pytest.ini_options]
 minversion = "6.0"
 addopts = "-ra -q"
-testpaths = [
-    "src/tests"
-]
+testpaths = ["src/tests"]
+
 [project.urls]
 "Homepage" = "https://github.com/idan424/MRI_enhancement/main"
 "Bug Tracker" = "https://github.com/idan424/MRI_enhancement/main/issues"
