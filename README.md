@@ -1,4 +1,3 @@
-# MRI_enhancement
 MRI Enhancement Project - Python for Neuroscience Course
 ==============================
 
@@ -6,7 +5,7 @@ MRI Enhancement Project - Python for Neuroscience Course
 What Is This?
 -------------
 
-This is a Python application intended to provide a simple interface for MRI image enhancement. The goal is to have an image enhancement UI interface with adjustable parameters, which pre-processes images and applies a CLAHE algorithem.
+This is a sample Python application intended to provide a simple interface for MRI image enhancement. The goal is to have an image enhancement UI interface with adjustable parameters, which pre-processes images and applies a CLAHE algorithem.
 
 Dependencies
 ---------------
@@ -46,11 +45,15 @@ This is a class project, and further development is not supported. You can make 
 3. Tziona NessAiver: email - tzionan@mail.tau.ac.il     GitHub - @TzionaN
 
 Homepage: "https://github.com/idan424/MRI_enhancement/main"
+
 Bug Tracker: "https://github.com/idan424/MRI_enhancement/main/issues"
 
 Credits
 -----------
 Sample images from: "https://radiopaedia.org"
+
 This work is based on the conference paper: 
+"https://doi.org/10.1016/j.procs.2020.04.190"
+
 >_Chandrashekar Leena and A. Sreedevi, "A Multi-Objective Enhancement Technique for Poor Contrast Magnetic Resonance Images of Brain Glioblastomas",Procedia Computer Science, vol. 171, pp. 1770-1779, 2020._ 
->"https://doi.org/10.1016/j.procs.2020.04.190"
+
